@@ -1,0 +1,112 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: wheat;
+}
+
+#app {
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    /* width: 100%; */
+}
+
+#itemList {
+    /* border: 1px solid white; */
+    width: 250px;
+}
+
+#itemList li {
+    cursor: pointer;
+  /* position: relative; */
+  padding: 12px 40px 12px 20px;
+  background: #eee;
+  color: black;
+  font-size: 18px;
+  font-family: 'Source Sans Pro', sans-serif;
+  transition: 0.2s;
+  /* display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center; */
+  width: 100%;
+
+  /* make the list items unselectable */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#itemList li:hover {
+    background: #ddd;
+}
+
+#itemView {
+    display: flex;
+    flex-flow: row nowrap;
+    margin: 15px;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.itemIcon {
+    display: inline-block;
+    
+}
+
+.itemName {
+    display: inline-block;
+}
+
+#itemView li {
+    position: relative;
+    background: #eee;
+    padding: 25px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 10px 10px 5px grey;
+}
+
+.close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 10px;
+}
+
+table {
+    border: 0.5px solid white;
+}
+
+th {
+    border: 0.5px solid white;
+    padding: 10px;
+}
+
+.positive {
+    color: green;
+}
+.negative {
+    color: red;
+}
+
+.firstOption { 
+    background-color: rgb(197, 197, 197); 
+}
+
+.textInput {
+    margin: 0;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 0;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+  }

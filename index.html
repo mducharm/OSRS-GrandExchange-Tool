@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>OSRS Grand Exchange Tool</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+
+<body>
+
+    <div id="app">
+        <div id="itemList">
+            <input type="text" v-model="inputText" @keyup.enter="submitText" class="textInput">
+            <!-- <button @click="getItemData(426)">click</button> -->
+            <!-- {{ filteredList[Object.keys(filteredList)[0]] }}
+            {{ Object.keys(filteredList)[0] }}  -->
+            <ul>
+                <li v-for="(value, key, x) in filteredList" v-show="inputText === '' || RegExp(inputText, 'ig').test(value)"
+                    :class="{firstOption: x === 0}"
+                    @click="getItemData(key)"
+                    >
+                    {{ value }}
+                    
+                    <!-- {{ key }} -->
+                </li>
+                
+            </ul>
+
+        </div>
+        <div id="itemView">
+            <ul>
+                <li :loadedItems="loadedItems" v-for="item in loadedItems">
+                    <img :src="item.icon" class="itemIcon">
+                    <h2 class="itemName">{{ item.name }}</h2>
+                    <p>{{ item.description }} ID: {{ item.id }}</p>
+                    <button @click="deleteItem(item)" class="close">X</button>
+                    <table>
+                        <tr>
+                            <th>Time</th>
+                            <th>Price</th>
+                            <th>Trend</th> 
+                            <th>Change</th> 
+                        </tr>
+                        <tr>
+                            <th>Current</th>
+                            <th>{{ item.current.price }}</th>
+                            <th>{{ item.current.trend }}</th>
+                        </tr>
+                        <tr>
+                            <th>Today</th>
+                            <th>{{ item.today.price }}</th>
+                            <th>{{ item.today.trend }}</th>
+                        </tr>
+                        <tr>
+                            <th>30-Day</th>
+                            <th>N/A</th>
+                            <th>{{ item.day30.trend }}</th>
+                            <th>{{ item.day30.change }}</th>
+                        </tr>
+                        <tr>
+                            <th>90-Day</th>
+                            <th>N/A</th>
+                            <th>{{ item.day90.trend }}</th>
+                            <th>{{ item.day90.change }}</th>
+                        </tr>
+                        <tr>
+                            <th>180-Day</th>
+                            <th>N/A</th>
+                            <th>{{ item.day180.trend }}</th>
+                            <th>{{ item.day180.change }}</th>
+                        </tr>
+                    </table>
+                    
+                    
+                </li>
+            </ul>
+            <!-- <canvas width="400" height="400" id="chart"></canvas> -->
+        </div>
+
+
+    </div>
+
+    <script src="page.js"></script>
+</body>
+
+</html>
